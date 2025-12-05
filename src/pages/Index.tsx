@@ -5,8 +5,10 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [a, setA] = useState<string>('2');
   const [b, setB] = useState<string>('5');
   const [c, setC] = useState<string>('11');
@@ -527,7 +529,32 @@ const Index = () => {
           </Card>
         </div>
 
-        <footer className="mt-16 text-center text-gray-600 pb-8">
+        <div className="mt-16 text-center">
+          <Card className="border-0 shadow-2xl bg-gradient-to-br from-indigo-100 to-blue-100 overflow-hidden">
+            <div className="h-2 bg-gradient-to-r from-indigo-500 to-blue-500"></div>
+            <CardContent className="p-8">
+              <div className="flex flex-col items-center gap-4">
+                <div className="p-4 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-2xl">
+                  <Icon name="ClipboardCheck" size={48} className="text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-800">Готовы проверить свои знания?</h3>
+                <p className="text-lg text-gray-600 max-w-2xl">
+                  Пройдите контрольную работу из 10 уравнений разной сложности. Получите мгновенную проверку и подробные решения!
+                </p>
+                <Button
+                  onClick={() => navigate('/test')}
+                  size="lg"
+                  className="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white text-xl py-6 px-12 shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+                >
+                  <Icon name="Rocket" className="mr-2" size={24} />
+                  Начать контрольную работу
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <footer className="mt-8 text-center text-gray-600 pb-8">
           <p className="text-lg">Удачи в изучении математики! 🎓✨</p>
         </footer>
       </div>
